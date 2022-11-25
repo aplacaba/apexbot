@@ -5,7 +5,8 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [com.github.discljord/discljord "1.3.1"]
-                 [environ "1.2.0"]]
+                 [environ "1.2.0"]
+                 [clj-http "3.12.3"]]
   :plugins [[lein-environ "1.2.0"]]
   :repl-options {:init-ns apex-bot.core}
   :main apex-bot.core)
