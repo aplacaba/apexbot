@@ -9,4 +9,4 @@
                  [clj-http "3.12.3"]]
   :plugins [[lein-environ "1.2.0"]]
   :repl-options {:init-ns apex-bot.core}
-  :main apex-bot.core)
+  :main apex-bot.core/main)

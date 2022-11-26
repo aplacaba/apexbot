@@ -8,7 +8,9 @@
 
 (defn proc-request
   [endpoint]
-  (-> endpoint client/get :body json/read-str))
+  (let [resp (client/get endpoint)
+        body (:body resp)]
+    (json/read-str body :key-fn keyword)))
 
 (defn map-rotation []
   (let [endpoint (str url "/maprotation?auth=" api-key)]
