@@ -18,6 +18,14 @@
 (defn show-crafting []
   (parser/fmt-crafting-rotation (api/crafting-rotation)))
 
+(def show-commands
+  (str
+   "```"
+   "/maprotation - View current map rotations\n"
+   "/crafting - View daily and weekly crafting items\n"
+   "/commands - Show available commands"
+   "```"))
+
 (defn main []
   (let [event-ch      (a/chan 100)
         connection-ch (c/connect-bot! token event-ch :intents intents)
@@ -33,6 +41,7 @@
               (case content
                 "/maprotation" (m/create-message! message-ch channel-id :content (show-map-rotation))
                 "/crafting" (m/create-message! message-ch channel-id :content (show-crafting))
+                "/commands" (m/create-message! message-ch channel-id :content show-commands)
                 "default")))
           (when (= :channel-pins-update event-type)
             (c/disconnect-bot! connection-ch))
