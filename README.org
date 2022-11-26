@@ -1,0 +1,12 @@
+* ApexBot
+
+Toy Bot for my personal discord server.
+
+Main usage is to view current map and crafting rotations without logging into Apex.
+
+** Available Commands
+=/maprotations= - Shows current and next map. Also shows remaining time for current map and next map duration
+
+=/crafting= - Shows *only* weeklies and daily crafting items
+
+=/commands= - Show all commands
