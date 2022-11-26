@@ -8,5 +8,7 @@
                  [environ "1.2.0"]
                  [clj-http "3.12.3"]]
   :plugins [[lein-environ "1.2.0"]]
+  :uberjar-name "apexbot-standalone.jar"
   :repl-options {:init-ns apex-bot.core}
-  :main apex-bot.core/main)
+  :main apex-bot.core
+  :aot [apex-bot.core])

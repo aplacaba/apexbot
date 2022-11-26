@@ -6,7 +6,8 @@
    [environ.core          :refer [env]]
    [apex-bot.api          :as api]
    [apex-bot.parsers      :as parser]
-   [clojure.string        :as s]))
+   [clojure.string        :as s])
+  (:gen-class))
 
 (def token (env :discord-key))
 (def intents #{:guilds :guild-messages})
@@ -26,7 +27,7 @@
    "/commands - Show available commands"
    "```"))
 
-(defn main []
+(defn -main [& args]
   (let [event-ch      (a/chan 100)
         connection-ch (c/connect-bot! token event-ch :intents intents)
         message-ch    (m/start-connection! token)]
