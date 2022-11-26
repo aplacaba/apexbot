@@ -5,17 +5,14 @@
 (defn fmt-map-rotation [data]
   (let [current (:current data)
         nxt     (:next data)]
-    (format "
+    (str
+     "```"
+     "Current Map: " (:map current) "\n"
+     "Remaining Time: " (:remainingTimer current) "\n"
+     "Next Map: " (:map nxt) "\n"
+     "Duration: " (:DurationInMinutes nxt) " minutes"
+     "```")))
 
-Current Map: %s
-Remaining Time: %s
-Next Map: %s
-Duration: %s minutes
-"
-            (:map current)
-            (:remainingTimer current)
-            (:map nxt)
-            (:DurationInMinutes nxt))))
 
 (defn crafter-items [col]
   (let [item-fmt (map (fn [item]
@@ -30,12 +27,9 @@ Duration: %s minutes
                      (filter #(= (:bundleType %) "daily") data)))
         weeklies (first (map #(:bundleContent %)
                              (filter #(= (:bundleType %) "weekly") data)))]
-
-    (format "
-*Dailies*
-%s
-*Weeklies*
-%s
-"
-            (crafter-items dailies)
-            (crafter-items weeklies))))
+    (str
+     "**Dailies**\n"
+     (crafter-items dailies)
+     "\n\n"
+     "**Weeklies**\n"
+     (crafter-items weeklies))))
