@@ -10,3 +10,17 @@ Main usage is to view current map and crafting rotations without logging into Ap
 =/crafting= - Shows *only* weeklies and daily crafting items
 
 =/commands= - Show all commands
+
+** Run Locally with docker
+Ensure that .env contains the following variables
+
+- DISCORD_KEY=discord_key
+- TARGET_CHANNEL=target_channel
+- APEX_API=apex_api
+- APEX_API_KEY=apex_api_key
+
+Run the app using docker:
+#+begin_src bash
+  docker build -t apexbot .
+  docker run --env-file .env apexbot
+#+end_src
